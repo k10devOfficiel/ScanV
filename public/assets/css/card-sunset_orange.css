@@ -1,0 +1,88 @@
+/**
+ * ScanV - Sunset Orange Theme Stylesheet
+ * Coucher de soleil tropical & Terracotta chaleureux
+ * Geometric figures: Arcs concentriques solaires, bandeau dégradé chaud
+ */
+@import url('card-default.css');
+
+:root {
+    --card-recto-bg: #FFFBF5;
+    --card-recto-name: #7C2D12;
+    --card-recto-muted: #EA580C;
+    --card-recto-details: #292524;
+    --card-primary-blue: #EA580C;
+    
+    --card-verso-bg: #9A3412;
+    --card-verso-text: #FFFBF5;
+    --card-qr-bg: #FFFFFF;
+}
+
+/* Figures géométriques: Disque solaire concentrique */
+.scanv-theme-sunset_orange.scanv-card-front .scanv-card-decor {
+    background: 
+        radial-gradient(circle at 100% 0%, rgba(234, 88, 12, 0.14) 0%, rgba(249, 115, 22, 0.06) 45%, transparent 70%);
+}
+
+.scanv-theme-sunset_orange.scanv-card-front .scanv-card-decor::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 3px dashed rgba(234, 88, 12, 0.25);
+}
+
+.scanv-theme-sunset_orange.scanv-card-front {
+    background: #FFFBF5;
+    color: #7C2D12;
+    border: 1px solid rgba(234, 88, 12, 0.25);
+}
+
+.scanv-theme-sunset_orange .scanv-front-avatar-container {
+    border: 3px solid #EA580C !important;
+    box-shadow: 0 10px 25px rgba(234, 88, 12, 0.25);
+}
+
+.scanv-theme-sunset_orange .scanv-front-name {
+    color: #7C2D12 !important;
+}
+
+.scanv-theme-sunset_orange .scanv-front-role-company {
+    color: #EA580C !important;
+}
+
+.scanv-theme-sunset_orange .scanv-front-details {
+    color: #292524 !important;
+    border-top: 2px solid rgba(234, 88, 12, 0.2) !important;
+}
+
+.scanv-theme-sunset_orange .scanv-front-logo-icon {
+    fill: #EA580C !important;
+}
+
+/* Verso */
+.scanv-theme-sunset_orange.scanv-card-back {
+    background: linear-gradient(135deg, #C2410C 0%, #7C2D12 100%) !important;
+    color: #FFFBF5 !important;
+}
+
+.scanv-theme-sunset_orange.scanv-card-back .scanv-card-decor::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(254, 215, 170, 0.2) 0%, transparent 70%);
+}
+
+.scanv-theme-sunset_orange .scanv-back-cta {
+    color: #FFFBF5 !important;
+}
+
+.scanv-theme-sunset_orange .scanv-back-logo-icon {
+    fill: #FDBA74 !important;
+}

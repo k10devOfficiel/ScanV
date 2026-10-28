@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1004 650" width="1004" height="650">
+    <rect width="1004" height="650" fill="#FFFFFF"/>
+    <!-- Yellow / Gold Stripe -->
+    <polygon points="662.5,45 706.5,45 390,650 346,650" fill="#F59E0B"/>
+    <!-- Orange / Coral Stripe -->
+    <polygon points="655.2,80 688.2,80 390,650 357,650" fill="#EA580C"/>
+    <!-- Deep Blue Stripe -->
+    <polygon points="647.8,115 669.8,115 390,650 368,650" fill="#1E40AF"/>
+    <!-- Sky Blue Stripe -->
+    <polygon points="640.5,150 651.5,150 390,650 379,650" fill="#0284C7"/>
+    <!-- Dark Navy Section (Straight Diagonal Edge) -->
+    <polygon points="730,0 1004,0 1004,650 390,650" fill="#0F172A"/>
+    <!-- SIP Flame Watermark -->
+    <g transform="translate(730, 40) scale(1.15)">
+        <path d="M52 0 C54 18 68 34 76 54 C88 80 84 108 62 126 C44 140 18 136 6 114 C-2 98 0 80 12 58 C15 54 22 56 22 62 C16 78 18 96 28 106 C40 118 60 114 70 98 C78 84 76 66 66 48 C60 36 54 22 52 0 Z" fill="#DC2626" opacity="0.18"/>
+        <path d="M35 28 C42 42 56 60 56 80 C56 98 44 110 32 108 C20 106 14 92 18 78 C22 64 28 48 35 28 Z" fill="#F59E0B" opacity="0.22"/>
+    </g>
+</svg>

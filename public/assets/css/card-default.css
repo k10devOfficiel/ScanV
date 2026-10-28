@@ -1,0 +1,410 @@
+/**
+ * ScanV - Default Business Card Template Stylesheet (F-08)
+ * Format : 85 mm × 55 mm (1004 px × 650 px à 300 DPI)
+ * Styled according to reference mockups (reference/cartes_recto_verso.html)
+ */
+
+:root {
+    --card-width: 1004px;
+    --card-height: 650px;
+    --card-aspect-ratio: calc(85 / 55);
+    --card-safety-margin: 35px; /* 3 mm safety margin at 300 dpi */
+    
+    /* Colors */
+    --card-recto-bg: #FFFFFF;
+    --card-recto-name: #0F172A;
+    --card-recto-muted: #475569;
+    --card-recto-details: #334155;
+    --card-primary-blue: #0F172A;
+    
+    --card-verso-bg: #0F172A;
+    --card-verso-text: #FFFFFF;
+    --card-qr-bg: #FFFFFF;
+    --card-qr-size: 320px;
+    
+    --card-font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
+    --card-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* Standalone browser preview canvas (looks like a physical card on a desk) */
+body.scanv-preview-body {
+    background: #E2E8F0;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+body.scanv-preview-body .scanv-card {
+    border-radius: 24px;
+    box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 1080px) {
+    body.scanv-preview-body {
+        padding: 16px 8px;
+    }
+    body.scanv-preview-body .scanv-card {
+        zoom: 0.72;
+    }
+}
+@media (max-width: 768px) {
+    body.scanv-preview-body {
+        padding: 12px 6px;
+    }
+    body.scanv-preview-body .scanv-card {
+        zoom: 0.52;
+    }
+}
+@media (max-width: 520px) {
+    body.scanv-preview-body {
+        padding: 8px 4px;
+    }
+    body.scanv-preview-body .scanv-card {
+        zoom: 0.35;
+    }
+}
+
+/* Export canvas (exact dimensions, no padding) */
+body.scanv-export-body {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* Card Root Container */
+.scanv-card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 44px 48px;
+    font-family: var(--card-font-body);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.scanv-card-decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Default Theme: Soft diagonal mesh & corner accent */
+.scanv-theme-default .scanv-card-decor {
+    background: radial-gradient(circle at 100% 0%, rgba(67, 56, 202, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 0% 100%, rgba(34, 211, 238, 0.04) 0%, transparent 50%);
+}
+.scanv-theme-default.scanv-card-front .scanv-card-decor::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(67,56,202,0.08), rgba(34,211,238,0.12));
+}
+
+/* =========================================================================
+   RECTO (FRONT) - MODERN DUAL-TONE DIAGONAL CORPORATE DESIGN
+   ========================================================================= */
+.scanv-card-front {
+    background: #FFFFFF;
+    position: relative;
+    padding: 0 !important;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Stepped Accent Border & Dark Section Background SVG (Detail 1) */
+.scanv-front-bg-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+}
+
+/* Backward compatibility for older templates */
+.scanv-front-accent-stripe {
+    display: none;
+}
+
+/* Right Dark Panel (Holds contact stack and watermark) */
+.scanv-front-right-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 48%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 48px 48px 24px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+/* Authentic Two-Tone SIP Flame Watermark (Detail 2) */
+.scanv-front-watermark {
+    position: absolute;
+    top: 20px;
+    right: 75px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.scanv-watermark-flame-svg {
+    width: 165px;
+    height: 205px;
+    display: block;
+}
+
+.scanv-watermark-flame-svg .flame-outer {
+    fill: var(--card-watermark-outer, #DC2626);
+    opacity: 0.24;
+}
+
+.scanv-watermark-flame-svg .flame-inner {
+    fill: var(--card-watermark-inner, #F59E0B);
+    opacity: 0.30;
+}
+
+/* Contact Details Stack on Right */
+.scanv-front-contacts-stack {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.scanv-front-contact-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+.scanv-contact-val {
+    font-size: 21px;
+    font-weight: 500;
+    color: #F8FAFC;
+    line-height: 1.35;
+    text-align: right;
+    max-width: 360px;
+}
+
+.scanv-contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: #F59E0B;
+}
+
+/* Left Panel: White/Light Brand & Identity */
+.scanv-front-left-panel {
+    position: relative;
+    z-index: 3;
+    width: 48%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 56px 36px 56px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.scanv-front-brand-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.scanv-front-logo-img {
+    max-width: 280px;
+    max-height: 110px;
+    object-fit: contain;
+    display: block;
+    background: transparent !important;
+}
+
+.scanv-front-logo-icon {
+    width: 56px;
+    height: 56px;
+    fill: var(--card-primary-blue, #4338CA);
+}
+
+.scanv-front-company {
+    font-family: var(--card-font-heading);
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #334155;
+    line-height: 1.3;
+    max-width: 320px;
+    margin-top: 8px;
+}
+
+.scanv-front-person-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.scanv-front-name {
+    font-family: var(--card-font-heading);
+    font-size: 40px;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    word-break: break-word;
+}
+
+.scanv-front-role {
+    font-size: 24px;
+    font-weight: 600;
+    font-style: italic;
+    color: #64748B;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+/* =========================================================================
+   VERSO (BACK)
+   ========================================================================= */
+.scanv-card-back {
+    background: var(--card-verso-bg);
+    color: var(--card-verso-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 56px;
+    padding: 48px;
+}
+
+.scanv-back-qr-box {
+    background: var(--card-qr-bg);
+    padding: 24px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.scanv-back-qr-img {
+    width: var(--card-qr-size);
+    height: var(--card-qr-size);
+    display: block;
+}
+
+.scanv-back-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    max-width: 480px;
+}
+
+.scanv-back-brand-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.scanv-back-logo-img {
+    max-width: 200px;
+    max-height: 75px;
+    object-fit: contain;
+    display: block;
+    background: transparent !important;
+}
+
+.scanv-back-company {
+    font-family: var(--card-font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #FFFFFF;
+    line-height: 1.25;
+}
+
+.scanv-back-address {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.35;
+    max-width: 440px;
+}
+
+.scanv-back-cta {
+    font-family: var(--card-font-heading);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -0.4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 16px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.scanv-back-logo-icon {
+    width: 48px;
+    height: 48px;
+    fill: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================================================
+   UTILITIES & SAFE TRUNCATION
+   ========================================================================= */
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+}

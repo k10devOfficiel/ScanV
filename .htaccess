@@ -1,0 +1,32 @@
+# Root .htaccess for ScanV
+# Disable directory browsing
+Options -Indexes
+
+# Deny direct web access to sensitive directories and system files
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block access to hidden files and directories (like .env, .git)
+    RewriteRule "(^|/)\.(?!well-known)" - [F]
+
+    # Block direct access to internal application directories
+    RewriteRule ^(app|config|database|storage|tests|vendor)/ - [F,L]
+
+    # Block direct access to specific sensitive root files
+    RewriteRule ^(\.env|\.env\..*|composer\.(json|lock)|phpunit\.xml|README\.md)$ - [F,L]
+
+    # Route all traffic to public directory if document root is set to project root
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# If mod_rewrite is disabled, explicitly deny access to sensitive files
+<FilesMatch "^(\.env.*|composer\.(json|lock)|phpunit\.xml)">
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>

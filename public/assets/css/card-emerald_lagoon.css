@@ -1,0 +1,108 @@
+/**
+ * ScanV - Emerald Lagoon Theme Stylesheet
+ * Émeraude Abidjan & Menthe fraîche
+ * Geometric figures: Voile d'ondes lagune, pilules flottantes, ruban émeraude
+ */
+@import url('card-default.css');
+
+:root {
+    --card-recto-bg: #F0FDF4;
+    --card-recto-name: #064E3B;
+    --card-recto-muted: #059669;
+    --card-recto-details: #1F2937;
+    --card-primary-blue: #059669;
+    
+    --card-verso-bg: #065F46;
+    --card-verso-text: #F0FDF4;
+    --card-qr-bg: #FFFFFF;
+}
+
+/* Animations */
+@keyframes lagoonWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.scanv-theme-emerald_lagoon {
+    border-radius: 28px !important;
+}
+
+/* Figures géométriques: Bandeau latéral gauche et courbe lagune */
+.scanv-theme-emerald_lagoon.scanv-card-front .scanv-card-decor {
+    background: radial-gradient(circle at 100% 100%, rgba(5, 150, 105, 0.12) 0%, transparent 60%);
+}
+
+.scanv-theme-emerald_lagoon.scanv-card-front .scanv-card-decor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 14px;
+    background: linear-gradient(180deg, #10B981 0%, #047857 100%);
+    border-radius: 28px 0 0 28px;
+}
+
+.scanv-theme-emerald_lagoon.scanv-card-front .scanv-card-decor::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.08));
+}
+
+.scanv-theme-emerald_lagoon.scanv-card-front {
+    background: #F0FDF4;
+    color: #064E3B;
+    border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.scanv-theme-emerald_lagoon .scanv-front-avatar-container {
+    border: 4px solid #10B981 !important;
+    box-shadow: 0 10px 24px rgba(5, 150, 105, 0.2);
+}
+
+.scanv-theme-emerald_lagoon .scanv-front-name {
+    color: #064E3B !important;
+}
+
+.scanv-theme-emerald_lagoon .scanv-front-role-company {
+    color: #059669 !important;
+}
+
+.scanv-theme-emerald_lagoon .scanv-front-details {
+    color: #1F2937 !important;
+    border-top: 2px dashed rgba(5, 150, 105, 0.25) !important;
+}
+
+.scanv-theme-emerald_lagoon .scanv-front-logo-icon {
+    fill: #059669 !important;
+}
+
+/* Verso */
+.scanv-theme-emerald_lagoon.scanv-card-back {
+    background: linear-gradient(135deg, #065F46 0%, #022C22 100%) !important;
+    color: #F0FDF4 !important;
+}
+
+.scanv-theme-emerald_lagoon.scanv-card-back .scanv-card-decor::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+}
+
+.scanv-theme-emerald_lagoon .scanv-back-cta {
+    color: #F0FDF4 !important;
+}
+
+.scanv-theme-emerald_lagoon .scanv-back-logo-icon {
+    fill: #34D399 !important;
+}

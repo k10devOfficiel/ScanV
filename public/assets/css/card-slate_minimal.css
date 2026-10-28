@@ -1,0 +1,96 @@
+/**
+ * ScanV - Slate Minimal Theme Stylesheet
+ * Ardoise épurée & Gris minéral
+ * Geometric figures: Grille Bauhaus, marqueurs géométriques carrés, filet de séparation vertical
+ */
+@import url('card-default.css');
+
+:root {
+    --card-recto-bg: #FFFFFF;
+    --card-recto-name: #0F172A;
+    --card-recto-muted: #64748B;
+    --card-recto-details: #334155;
+    --card-primary-blue: #475569;
+    
+    --card-verso-bg: #1E293B;
+    --card-verso-text: #F8FAFC;
+    --card-qr-bg: #FFFFFF;
+}
+
+.scanv-theme-slate_minimal {
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 8px !important;
+}
+
+/* Figures géométriques: Grille architecturale minimaliste */
+.scanv-theme-slate_minimal.scanv-card-front .scanv-card-decor::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    left: 310px;
+    width: 1px;
+    background: #E2E8F0;
+}
+
+.scanv-theme-slate_minimal.scanv-card-front .scanv-card-decor::after {
+    content: '■ MINIMAL GRID';
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    font-size: 10px;
+    font-family: monospace;
+    color: #94A3B8;
+    letter-spacing: 2px;
+}
+
+.scanv-theme-slate_minimal.scanv-card-front {
+    background: #FFFFFF;
+    color: #0F172A;
+}
+
+.scanv-theme-slate_minimal .scanv-front-avatar-container {
+    border-radius: 12px !important; /* Square with soft corners */
+    border: 2px solid #E2E8F0 !important;
+    box-shadow: none !important;
+}
+
+.scanv-theme-slate_minimal .scanv-front-name {
+    color: #0F172A !important;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.scanv-theme-slate_minimal .scanv-front-role-company {
+    color: #64748B !important;
+    text-transform: uppercase;
+    font-size: 18px !important;
+    letter-spacing: 1px;
+}
+
+.scanv-theme-slate_minimal .scanv-front-details {
+    color: #334155 !important;
+    border-top: 1px solid #E2E8F0 !important;
+}
+
+.scanv-theme-slate_minimal .scanv-front-logo-icon {
+    fill: #475569 !important;
+}
+
+/* Verso */
+.scanv-theme-slate_minimal.scanv-card-back {
+    background: #1E293B !important;
+    color: #F8FAFC !important;
+    border: 1px solid #334155 !important;
+}
+
+.scanv-theme-slate_minimal .scanv-back-cta {
+    color: #F8FAFC !important;
+    text-transform: uppercase;
+    font-size: 18px !important;
+    letter-spacing: 1px;
+}
+
+.scanv-theme-slate_minimal .scanv-back-logo-icon {
+    fill: #94A3B8 !important;
+}

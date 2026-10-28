@@ -1,0 +1,107 @@
+/**
+ * ScanV - Prestige Gold Theme Stylesheet
+ * Ébène mat & Or champagne
+ * Geometric figures: Cadre double liseré or, coins ornementaux, séparateur diamant
+ */
+@import url('card-default.css');
+
+:root {
+    --card-recto-bg: #0F172A;
+    --card-recto-name: #FFFFFF;
+    --card-recto-muted: #F59E0B;
+    --card-recto-details: #E2E8F0;
+    --card-primary-blue: #D97706;
+    
+    --card-verso-bg: #090D16;
+    --card-verso-text: #F8FAFC;
+    --card-qr-bg: #FFFFFF;
+}
+
+/* Animations */
+@keyframes goldShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.scanv-theme-prestige_gold {
+    border: 2px solid #D97706 !important;
+    outline: 1px solid rgba(217, 119, 6, 0.35);
+    outline-offset: -12px;
+}
+
+/* Figures géométriques: Filigrane & Coins ornementaux */
+.scanv-theme-prestige_gold .scanv-card-decor {
+    background: radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
+}
+
+.scanv-theme-prestige_gold .scanv-card-decor::before,
+.scanv-theme-prestige_gold .scanv-card-decor::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-color: #F59E0B;
+    border-style: solid;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.scanv-theme-prestige_gold .scanv-card-decor::before {
+    top: 20px;
+    left: 20px;
+    border-width: 3px 0 0 3px;
+}
+
+.scanv-theme-prestige_gold .scanv-card-decor::after {
+    bottom: 20px;
+    right: 20px;
+    border-width: 0 3px 3px 0;
+}
+
+/* Recto */
+.scanv-theme-prestige_gold.scanv-card-front {
+    background: #0F172A;
+    color: #F8FAFC;
+}
+
+.scanv-theme-prestige_gold .scanv-front-avatar-container {
+    border: 3px solid #D97706 !important;
+    box-shadow: 0 0 25px rgba(217, 119, 6, 0.35);
+}
+
+.scanv-theme-prestige_gold .scanv-front-name {
+    color: #FFFFFF !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.scanv-theme-prestige_gold .scanv-front-role-company {
+    color: #F59E0B !important;
+    letter-spacing: 0.5px;
+}
+
+.scanv-theme-prestige_gold .scanv-front-details {
+    color: #CBD5E1 !important;
+    border-top: 1px solid rgba(245, 158, 11, 0.3) !important;
+    position: relative;
+}
+
+.scanv-theme-prestige_gold .scanv-front-logo-icon {
+    fill: #F59E0B !important;
+}
+
+/* Verso */
+.scanv-theme-prestige_gold.scanv-card-back {
+    background: linear-gradient(135deg, #1E1B4B 0%, #090D16 100%) !important;
+    color: #F8FAFC !important;
+    border: 2px solid #D97706 !important;
+}
+
+.scanv-theme-prestige_gold .scanv-back-cta {
+    color: #F8FAFC !important;
+    letter-spacing: 0.5px;
+}
+
+.scanv-theme-prestige_gold .scanv-back-logo-icon {
+    fill: #F59E0B !important;
+}

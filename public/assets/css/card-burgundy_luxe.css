@@ -1,0 +1,80 @@
+/**
+ * ScanV - Burgundy Luxe Theme Stylesheet
+ * Bordeaux exécutif & Velours profond
+ * Geometric figures: Filigrane guilloché, liseré double royal, cartouche nobiliaire
+ */
+@import url('card-default.css');
+
+:root {
+    --card-recto-bg: #FFF5F7;
+    --card-recto-name: #701A75;
+    --card-recto-muted: #BE185D;
+    --card-recto-details: #374151;
+    --card-primary-blue: #9D174D;
+    
+    --card-verso-bg: #831843;
+    --card-verso-text: #FFF5F7;
+    --card-qr-bg: #FFFFFF;
+}
+
+.scanv-theme-burgundy_luxe {
+    border: 2px solid #9D174D !important;
+}
+
+/* Figures géométriques: Guilloché linéraire et liseré intérieur */
+.scanv-theme-burgundy_luxe.scanv-card-front .scanv-card-decor {
+    background-image: repeating-linear-gradient(45deg, rgba(157, 23, 77, 0.03) 0, rgba(157, 23, 77, 0.03) 2px, transparent 0, transparent 16px);
+}
+
+.scanv-theme-burgundy_luxe.scanv-card-front .scanv-card-decor::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(157, 23, 77, 0.25);
+    pointer-events: none;
+}
+
+.scanv-theme-burgundy_luxe.scanv-card-front {
+    background: #FFF5F7;
+    color: #701A75;
+}
+
+.scanv-theme-burgundy_luxe .scanv-front-avatar-container {
+    border: 3px double #9D174D !important;
+    box-shadow: 0 8px 24px rgba(131, 24, 67, 0.2);
+}
+
+.scanv-theme-burgundy_luxe .scanv-front-name {
+    color: #701A75 !important;
+    font-family: Georgia, serif;
+}
+
+.scanv-theme-burgundy_luxe .scanv-front-role-company {
+    color: #BE185D !important;
+    font-style: italic;
+}
+
+.scanv-theme-burgundy_luxe .scanv-front-details {
+    color: #374151 !important;
+    border-top: 2px double rgba(157, 23, 77, 0.3) !important;
+}
+
+.scanv-theme-burgundy_luxe .scanv-front-logo-icon {
+    fill: #9D174D !important;
+}
+
+/* Verso */
+.scanv-theme-burgundy_luxe.scanv-card-back {
+    background: linear-gradient(135deg, #831843 0%, #4C0519 100%) !important;
+    color: #FFF5F7 !important;
+    border: 2px solid #BE185D !important;
+}
+
+.scanv-theme-burgundy_luxe .scanv-back-cta {
+    color: #FFF5F7 !important;
+    font-family: Georgia, serif;
+}
+
+.scanv-theme-burgundy_luxe .scanv-back-logo-icon {
+    fill: #F472B6 !important;
+}

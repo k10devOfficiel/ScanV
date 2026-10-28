@@ -1,0 +1,27 @@
+# Disable directory browsing
+Options -Indexes
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self';"
+</IfModule>
+
+# URL Rewriting to index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent direct access to hidden files
+    RewriteRule "(^|/)\.(?!well-known)" - [F]
+
+    # If the requested file or directory exists, serve directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Otherwise rewrite to index.php
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

@@ -1,0 +1,88 @@
+/**
+ * ScanV - Royal Violet Theme Stylesheet
+ * Violet impérial & Améthyste lumineuse
+ * Geometric figures: Orbes géométriques en halo, cerclage néon améthyste, fond améthyste
+ */
+@import url('card-default.css');
+
+:root {
+    --card-recto-bg: #FAF5FF;
+    --card-recto-name: #581C87;
+    --card-recto-muted: #7E22CE;
+    --card-recto-details: #3B0764;
+    --card-primary-blue: #7E22CE;
+    
+    --card-verso-bg: #4C1D95;
+    --card-verso-text: #FAF5FF;
+    --card-qr-bg: #FFFFFF;
+}
+
+@keyframes violetAura {
+    0%, 100% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.08); opacity: 0.35; }
+}
+
+.scanv-theme-royal_violet {
+    border: 1px solid rgba(126, 34, 206, 0.3) !important;
+}
+
+/* Figures géométriques: Orbes améthyste */
+.scanv-theme-royal_violet .scanv-card-decor {
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(126, 34, 206, 0.12) 0%, transparent 50%);
+}
+
+.scanv-theme-royal_violet.scanv-card-front .scanv-card-decor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 120px;
+    width: 280px;
+    height: 280px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+    animation: violetAura 4s infinite ease-in-out;
+}
+
+.scanv-theme-royal_violet.scanv-card-front {
+    background: #FAF5FF;
+    color: #581C87;
+}
+
+.scanv-theme-royal_violet .scanv-front-avatar-container {
+    border: 3px solid #7E22CE !important;
+    box-shadow: 0 0 24px rgba(126, 34, 206, 0.35);
+}
+
+.scanv-theme-royal_violet .scanv-front-name {
+    color: #581C87 !important;
+}
+
+.scanv-theme-royal_violet .scanv-front-role-company {
+    color: #7E22CE !important;
+}
+
+.scanv-theme-royal_violet .scanv-front-details {
+    color: #3B0764 !important;
+    border-top: 1px solid rgba(126, 34, 206, 0.25) !important;
+}
+
+.scanv-theme-royal_violet .scanv-front-logo-icon {
+    fill: #7E22CE !important;
+}
+
+/* Verso */
+.scanv-theme-royal_violet.scanv-card-back {
+    background: linear-gradient(135deg, #4C1D95 0%, #2E1065 100%) !important;
+    color: #FAF5FF !important;
+}
+
+.scanv-theme-royal_violet .scanv-back-cta {
+    color: #FAF5FF !important;
+}
+
+.scanv-theme-royal_violet .scanv-back-logo-icon {
+    fill: #C084FC !important;
+}

@@ -1,0 +1,67 @@
+/**
+ * ScanV - Design Tokens
+ * Harmonized with reference mockups (reference/ScanV – Maquettes de l'interface.html)
+ */
+:root {
+    /* Brand Palette */
+    --color-primary: #4338CA;           /* Modern Indigo Primary */
+    --color-primary-hover: #3730A3;     /* Darker Indigo */
+    --color-primary-light: #E0E7FF;     /* Indigo 100 Tint */
+    --color-primary-contrast: #FFFFFF;
+    
+    /* Accent Palette */
+    --color-accent: #22D3EE;            /* Cyan 400 Accent Bar */
+    --color-accent-hover: #06B6D4;
+    
+    /* Neutral Surface & Backgrounds */
+    --color-bg: #F8FAFC;                /* Slate 50 Page Background */
+    --color-surface: #FFFFFF;           /* Card White */
+    --color-surface-muted: #F1F5F9;     /* Slate 100 */
+    --color-surface-container: #FFFFFF;
+    --color-card-bg: #FFFFFF;
+
+    /* Text Colors */
+    --color-text: #0F172A;              /* Slate 900 Heading / Primary text */
+    --color-text-muted: #475569;        /* Slate 600 Body secondary text */
+    --color-text-subtle: #64748B;       /* Slate 500 */
+    
+    /* Borders & Outlines */
+    --color-border: #E2E8F0;            /* Slate 200 Card Border */
+    --color-border-input: #CBD5E1;      /* Slate 300 Input Border */
+    --color-border-focus: #4338CA;
+    
+    /* Statuses */
+    --color-success: #166534;           /* Green 800 */
+    --color-success-bg: #DCFCE7;        /* Green 100 */
+    --color-danger: #DC2626;            /* Red 600 */
+    --color-danger-text: #B91C1C;       /* Red 700 */
+    --color-danger-bg: #FEF2F2;         /* Red 50 */
+    
+    /* Typography */
+    --font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Consolas, Menlo, monospace;
+    
+    /* Radii */
+    --radius-sm: 6px;
+    --radius-input: 10px;
+    --radius-btn: 12px;
+    --radius-card: 16px;
+    --radius-full: 9999px;
+    
+    /* Spacing */
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+    --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.16);
+}

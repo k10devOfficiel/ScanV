@@ -1,0 +1,27 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Vendor dependencies
+/vendor/
+composer.phar
+
+# Storage / logs / uploads / cache
+/storage/logs/*.log
+/storage/generated/*
+/storage/private-uploads/*
+!/storage/logs/.gitkeep
+!/storage/generated/.gitkeep
+!/storage/private-uploads/.gitkeep
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,0 +1,102 @@
+/**
+ * ScanV - Ocean Tech Theme Stylesheet
+ * Océan profond & Cyan électrique
+ * Geometric figures: Grille matrice cyber, bande de statut télémétrique, réticules [+]
+ */
+@import url('card-default.css');
+
+:root {
+    --card-recto-bg: #0B192C;
+    --card-recto-name: #F0F9FF;
+    --card-recto-muted: #38BDF8;
+    --card-recto-details: #BAE6FD;
+    --card-primary-blue: #0284C7;
+    
+    --card-verso-bg: #0C4A6E;
+    --card-verso-text: #F0F9FF;
+    --card-qr-bg: #FFFFFF;
+}
+
+/* Animations */
+@keyframes cyberGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.6); }
+}
+
+.scanv-theme-ocean_tech {
+    border: 1px solid #0284C7 !important;
+}
+
+/* Figures géométriques: Grille cyber & Barre d'accent cyan */
+.scanv-theme-ocean_tech .scanv-card-decor {
+    background-image: 
+        linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.scanv-theme-ocean_tech.scanv-card-front .scanv-card-decor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 12px;
+    background: linear-gradient(180deg, #38BDF8 0%, #0284C7 100%);
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+}
+
+.scanv-theme-ocean_tech.scanv-card-front .scanv-card-decor::after {
+    content: '+ TECH ID // 300DPI';
+    position: absolute;
+    top: 24px;
+    right: 36px;
+    font-family: monospace;
+    font-size: 11px;
+    color: rgba(56, 189, 248, 0.4);
+    letter-spacing: 2px;
+}
+
+/* Recto */
+.scanv-theme-ocean_tech.scanv-card-front {
+    background: #0B192C;
+    color: #F0F9FF;
+}
+
+.scanv-theme-ocean_tech .scanv-front-avatar-container {
+    border: 3px solid #38BDF8 !important;
+    animation: cyberGlow 3s infinite ease-in-out;
+}
+
+.scanv-theme-ocean_tech .scanv-front-name {
+    color: #F0F9FF !important;
+    letter-spacing: 0.5px;
+}
+
+.scanv-theme-ocean_tech .scanv-front-role-company {
+    color: #38BDF8 !important;
+    font-family: monospace;
+}
+
+.scanv-theme-ocean_tech .scanv-front-details {
+    color: #BAE6FD !important;
+    border-top: 1px solid rgba(56, 189, 248, 0.25) !important;
+}
+
+.scanv-theme-ocean_tech .scanv-front-logo-icon {
+    fill: #38BDF8 !important;
+}
+
+/* Verso */
+.scanv-theme-ocean_tech.scanv-card-back {
+    background: linear-gradient(135deg, #0C4A6E 0%, #082F49 100%) !important;
+    color: #F0F9FF !important;
+}
+
+.scanv-theme-ocean_tech .scanv-back-cta {
+    color: #F0F9FF !important;
+}
+
+.scanv-theme-ocean_tech .scanv-back-logo-icon {
+    fill: #38BDF8 !important;
+}
